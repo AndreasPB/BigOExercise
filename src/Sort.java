@@ -43,7 +43,6 @@ public class Sort {
         int oldPosition = 0;
         boolean doneSorting = false;
         int high = lowest;
-        int[] sortedNumbers = new int[numbers.length];
 
         while (!doneSorting) {
             /**
@@ -57,7 +56,7 @@ public class Sort {
             }
 
             /**
-             * Flytter elementer fra den gamle position og frem
+             * Flytter elementer fra den gamle position og frem tilbage
              */
             for (int i = oldPosition; i < rightWall - 1; i++) {
                 numbers[i] = numbers[i + 1];
@@ -66,11 +65,14 @@ public class Sort {
             numbers[rightWall - 1] = high;
             rightWall--;
 
+            /**
+             * Sætter den højeste værdi tilbage til minimum og har en vej ud af while loopet, når murene når hinanden
+             */
             high = lowest;
             if (rightWall == leftWall) {
                 doneSorting = true;
             }
         }
-        return sortedNumbers;
+        return numbers;
     }
 }

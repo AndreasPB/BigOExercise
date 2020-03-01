@@ -9,6 +9,8 @@ public class Main {
         int arraySize = 10000;
 
         /**
+         * *** DEMO ***
+         * 
          * To ens arrays til sammenligning
          */
         int[] numbers = arrayGenerator.getNumbers(arraySize);
@@ -35,7 +37,7 @@ public class Main {
         utility.printNumbers("Original array", numbers2);
 
         long startTime2 = System.nanoTime();
-        sort.scanWallSort(numbers2, 10, -10);
+        sort.scanWallSort(numbers2, -10);
         long endTime2 = System.nanoTime();
         long duration2 = (endTime2 - startTime2);
 
