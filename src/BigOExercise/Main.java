@@ -1,3 +1,6 @@
+package BigOExercise;
+// asbc  Altid en god vane at laegge koden i en package
+
 import java.util.Arrays;
 
 public class Main {
@@ -9,8 +12,6 @@ public class Main {
         int arraySize = 10000;
 
         /**
-         * *** DEMO ***
-         * 
          * To ens arrays til sammenligning
          */
         int[] numbers = arrayGenerator.getNumbers(arraySize);
@@ -38,6 +39,9 @@ public class Main {
 
         long startTime2 = System.nanoTime();
         sort.scanWallSort(numbers2, -10);
+        // asbc Din metode returnerer et array; her anvender du det ikke !
+        //      Din kode overlever, fordi du kalder "By reference"
+        //      Kig på det. Vi skal lige have en generel snak om det i klassen.
         long endTime2 = System.nanoTime();
         long duration2 = (endTime2 - startTime2);
 

@@ -1,12 +1,16 @@
+package BigOExercise;
 /**
  * Recursive "Bruteforce" metode. Tror den hedder BubbleSort
- * Kræver meget tid og bruger lidt plads - Normalt det modsatte af hvad vi vil med BigO(h)
+ * Kræver meget tid og bruger lidt plads - Normalt det modsatte
+ * af hvad vi vil med BigO(h).
+ *
+ * asbc "bruger lidt plads" er IKKE sandt. Hver gang du kalder rutinen
+ *      afsættes der plads, som først bliver frigivet naar de recursive
+ *      kald vender tilbage.
  */
 public class Sort {
 
-    public int[] recursiveBubbleSort(int[] numbers) {
-
-        Utility utility = new Utility();
+    public void recursiveBubbleSort(int[] numbers) {
         boolean sorted = false;
         int posA;
         int posB;
@@ -26,10 +30,10 @@ public class Sort {
             //utility.printNumbers("Sorting", numbers);
             recursiveBubbleSort(numbers);
         } else {
-            return numbers;
         }
         assert(true); // Burde ikke kunne ske
-        return numbers;
+        // asbc Assert har kun en vaerdi, hvis det kan gå forkert
+        //      https://www.youtube.com/watch?v=qeKSharClIo
     }
 
     /**
@@ -37,7 +41,7 @@ public class Sort {
      * @param numbers
      * @return
      */
-    public int[] scanWallSort(int[] numbers, int lowest) {
+    public void scanWallSort(int[] numbers, int lowest) {
         int leftWall = 0;
         int rightWall = numbers.length;
         int oldPosition = 0;
@@ -56,7 +60,7 @@ public class Sort {
             }
 
             /**
-             * Flytter elementer fra den gamle position og frem tilbage
+             * Flytter elementer fra den gamle position og frem
              */
             for (int i = oldPosition; i < rightWall - 1; i++) {
                 numbers[i] = numbers[i + 1];
@@ -65,14 +69,10 @@ public class Sort {
             numbers[rightWall - 1] = high;
             rightWall--;
 
-            /**
-             * Sætter den højeste værdi tilbage til minimum og har en vej ud af while loopet, når murene når hinanden
-             */
             high = lowest;
             if (rightWall == leftWall) {
                 doneSorting = true;
             }
         }
-        return numbers;
     }
 }
