@@ -33,45 +33,17 @@ public class Sort {
     }
 
     /**
-     * Skal blive i det første index indtil værdien er den laveste -> Smider værdien af indexet til højre indtil den rammer
-     * en højere værdi eller rammer muren. Hvis den rammer muren er den den højeste værdi og flytter muren
-     * Hvis den ikke kan finde en lavere værdi, er den den laveste værdi og flytter venstre mur frem
+     * Scanner efter det højeste tal og flytter det til enden af arrayet.
      * @param numbers
      * @return
      */
-    public int[] wallSort(int[] numbers) {
+    public int[] scanWallSort(int[] numbers, int lowest) {
         int leftWall = 0;
         int rightWall = numbers.length;
-        int newPosition;
-        boolean doneSorting = false;
-
-        while (!doneSorting) {
-            for (int i = leftWall; i < rightWall; i++) {
-                if (numbers[leftWall] > i) {
-                    newPosition = i;
-                }
-            }
-
-            doneSorting = true;
-        }
-        return numbers;
-    }
-
-    /**
-     * Walls + scanner efter højeste + laveste værdi
-     * @param numbers
-     * @return
-     */
-    public int[] scanWallSort(int[] numbers, int highest, int lowest) {
-        int leftWall = 0;
-        int rightWall = numbers.length;
-        int newPosition;
         int oldPosition = 0;
         boolean doneSorting = false;
-        int low = highest;
         int high = lowest;
         int[] sortedNumbers = new int[numbers.length];
-        Utility utility = new Utility();
 
         while (!doneSorting) {
             /**
@@ -93,8 +65,6 @@ public class Sort {
 
             numbers[rightWall - 1] = high;
             rightWall--;
-
-            //utility.printNumbers("Sorting", numbers);
 
             high = lowest;
             if (rightWall == leftWall) {
