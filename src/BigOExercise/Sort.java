@@ -1,15 +1,11 @@
 package BigOExercise;
-/**
- * Recursive "Bruteforce" metode. Tror den hedder BubbleSort
- * Kræver meget tid og bruger lidt plads - Normalt det modsatte
- * af hvad vi vil med BigO(h).
- *
- * asbc "bruger lidt plads" er IKKE sandt. Hver gang du kalder rutinen
- *      afsættes der plads, som først bliver frigivet naar de recursive
- *      kald vender tilbage.
- */
+
 public class Sort {
 
+    /**
+     * Recursive "Bruteforce" metode. Tror den hedder BubbleSort
+     * @param numbers
+     */
     public void recursiveBubbleSort(int[] numbers) {
         boolean sorted = false;
         int posA;
@@ -27,13 +23,8 @@ public class Sort {
             }
         }
         if (sorted) {
-            //utility.printNumbers("Sorting", numbers);
             recursiveBubbleSort(numbers);
-        } else {
         }
-        assert(true); // Burde ikke kunne ske
-        // asbc Assert har kun en vaerdi, hvis det kan gå forkert
-        //      https://www.youtube.com/watch?v=qeKSharClIo
     }
 
     /**
@@ -41,7 +32,7 @@ public class Sort {
      * @param numbers
      * @return
      */
-    public void scanWallSort(int[] numbers, int lowest) {
+    public void selectionSort(int[] numbers, int lowest) {
         int leftWall = 0;
         int rightWall = numbers.length;
         int oldPosition = 0;
