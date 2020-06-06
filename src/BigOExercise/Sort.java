@@ -2,8 +2,10 @@ package BigOExercise;
 
 public class Sort {
 
+
     /**
-     * Recursive "Bruteforce" metode. Tror den hedder BubbleSort
+     * Recursive "Bruteforce" metode - BubbleSort
+     * O(n^2)
      * @param numbers
      */
     public void recursiveBubbleSort(int[] numbers) {
@@ -15,10 +17,8 @@ public class Sort {
             if(numbers[i] > numbers[i + 1] && numbers[i] != numbers.length) {
                 posA = numbers[i];
                 posB = numbers[i + 1];
-
                 numbers[i] = posB;
                 numbers[i + 1] = posA;
-
                 sorted = true;
             }
         }
@@ -29,6 +29,7 @@ public class Sort {
 
     /**
      * Scanner efter det højeste tal og flytter det til enden af arrayet.
+     * O(n^2)
      * @param numbers
      * @return
      */
